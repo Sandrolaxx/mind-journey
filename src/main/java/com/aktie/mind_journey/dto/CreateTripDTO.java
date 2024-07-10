@@ -1,4 +1,4 @@
-package com.aktie.mind_journey;
+package com.aktie.mind_journey.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -1,5 +1,6 @@
 package com.aktie.mind_journey.entities;
 
+import com.aktie.mind_journey.dto.CreateTripDTO;
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
@@ -8,6 +9,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
+@Table(name = "AKT_TRIP")
 public class Trip {
 
     @Id
@@ -32,6 +34,18 @@ public class Trip {
 
     @Column(name = "OWNER_EMAIL", nullable = false)
     private String ownerEmail;
+
+    public Trip() {
+    }
+
+    public Trip(CreateTripDTO dto) {
+        this.destination = dto.destination();
+        this.confirmed = false;
+        this.ownerName = dto.ownerName();
+        this.ownerEmail = dto.ownerEmail();
+        this.startAt = dto.startAt();
+        this.endAt = dto.endAt();
+    }
 
     public UUID getId() {
         return id;
