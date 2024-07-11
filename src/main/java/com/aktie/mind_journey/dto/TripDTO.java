@@ -3,7 +3,7 @@ package com.aktie.mind_journey.dto;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public record CreateTripDTO(
+public record TripDTO(
         String destination,
         LocalDateTime startAt,
         LocalDateTime endAt,

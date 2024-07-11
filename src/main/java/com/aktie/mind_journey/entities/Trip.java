@@ -1,6 +1,6 @@
 package com.aktie.mind_journey.entities;
 
-import com.aktie.mind_journey.dto.CreateTripDTO;
+import com.aktie.mind_journey.dto.TripDTO;
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
@@ -38,7 +38,7 @@ public class Trip {
     public Trip() {
     }
 
-    public Trip(CreateTripDTO dto) {
+    public Trip(TripDTO dto) {
         this.destination = dto.destination();
         this.confirmed = false;
         this.ownerName = dto.ownerName();
