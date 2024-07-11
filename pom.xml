@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.aktie</groupId>
-	<artifactId>mind-journey</artifactId>
+	<artifactId>trip-pass</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>mind-journey</name>
+	<name>trip-pass</name>
 	<description>Projeto para facilitar o planejamento de viagens</description>
 	<url/>
 	<licenses>

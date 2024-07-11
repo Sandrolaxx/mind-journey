@@ -1,9 +1,9 @@
-package com.aktie.mind_journey.service;
+package com.aktie.trippass.service;
 
-import com.aktie.mind_journey.dto.ParticipantDTO;
-import com.aktie.mind_journey.entities.Participant;
-import com.aktie.mind_journey.entities.Trip;
-import com.aktie.mind_journey.repository.ParticipantRepository;
+import com.aktie.trippass.dto.ParticipantDTO;
+import com.aktie.trippass.entities.Participant;
+import com.aktie.trippass.entities.Trip;
+import com.aktie.trippass.repository.ParticipantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

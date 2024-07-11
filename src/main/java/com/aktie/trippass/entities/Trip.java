@@ -1,6 +1,6 @@
-package com.aktie.mind_journey.entities;
+package com.aktie.trippass.entities;
 
-import com.aktie.mind_journey.dto.TripDTO;
+import com.aktie.trippass.dto.TripDTO;
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;

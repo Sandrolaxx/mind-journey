@@ -1,13 +1,13 @@
-package com.aktie.mind_journey;
+package com.aktie.trippass;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MindJourneyApplication {
+public class TripPassApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MindJourneyApplication.class, args);
+		SpringApplication.run(TripPassApplication.class, args);
 	}
 
 }

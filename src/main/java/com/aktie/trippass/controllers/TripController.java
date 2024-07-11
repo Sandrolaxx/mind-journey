@@ -1,11 +1,11 @@
-package com.aktie.mind_journey.controllers;
+package com.aktie.trippass.controllers;
 
-import com.aktie.mind_journey.dto.InviteTripDTO;
-import com.aktie.mind_journey.dto.ParticipantDTO;
-import com.aktie.mind_journey.dto.TripDTO;
-import com.aktie.mind_journey.entities.Trip;
-import com.aktie.mind_journey.repository.TripRepository;
-import com.aktie.mind_journey.service.ParticipantService;
+import com.aktie.trippass.dto.*;
+import com.aktie.trippass.entities.Trip;
+import com.aktie.trippass.repository.TripRepository;
+import com.aktie.trippass.service.ActivityService;
+import com.aktie.trippass.service.LinkService;
+import com.aktie.trippass.service.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +20,12 @@ public class TripController {
 
     @Autowired
     private ParticipantService participantService;
+
+    @Autowired
+    private ActivityService activityService;
+
+    @Autowired
+    private LinkService linkService;
 
     @Autowired
     private TripRepository repository;
@@ -97,6 +103,40 @@ public class TripController {
     @GetMapping("/participants")
     public ResponseEntity<List<ParticipantDTO>> getAllParticipants(@RequestHeader UUID id) {
         return ResponseEntity.ok(participantService.listByTripId(id));
+    }
+
+    @PostMapping("/activity")
+    public ResponseEntity<ActivityDTO> createActivity(@RequestHeader UUID id, @RequestBody ActivityDTO dto) {
+        Optional<Trip> findedTrip = repository.findById(id);
+
+        return findedTrip.map(trip -> {
+                    var createdActivity = activityService.addActivity(dto, trip);
+
+                    return ResponseEntity.ok(createdActivity);
+                })
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/activity")
+    public ResponseEntity<List<ActivityDTO>> getAllActivities(@RequestHeader UUID id) {
+        return ResponseEntity.ok(activityService.listByTripId(id));
+    }
+
+    @PostMapping("/link")
+    public ResponseEntity<LinkDTO> createLink(@RequestHeader UUID id, @RequestBody LinkDTO dto) {
+        Optional<Trip> findedTrip = repository.findById(id);
+
+        return findedTrip.map(trip -> {
+                    var createdActivity = linkService.addLink(dto, trip);
+
+                    return ResponseEntity.ok(createdActivity);
+                })
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/link")
+    public ResponseEntity<List<LinkDTO>> getAllLinks(@RequestHeader UUID id) {
+        return ResponseEntity.ok(linkService.listByTripId(id));
     }
 
 }

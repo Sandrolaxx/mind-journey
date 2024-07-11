@@ -1,10 +1,10 @@
-package com.aktie.mind_journey;
+package com.aktie.trippass;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MindJourneyApplicationTests {
+class TripPassApplicationTests {
 
 	@Test
 	void contextLoads() {
